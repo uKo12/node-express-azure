@@ -1,5 +1,7 @@
 # Sample Node.js app for Endava Azure DevOps Challenge
 
+[![Build Status](https://dev.azure.com/ivazure/uKo-Endava/_apis/build/status/uKo12.node-express-azure?branchName=master)](https://dev.azure.com/ivazure/uKo-Endava/_build/latest?definitionId=1&branchName=master)
+
 Simple Node.js app deployed with Azure DevOps. 
 
 - Project name: uKo-Endava
