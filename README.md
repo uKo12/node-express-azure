@@ -1,59 +1,54 @@
-# Node & Express Demo App for Azure DevOps
+# Sample Node app for Endava Azure DevOps Challenge
 
-> Build Your First CI/CD Pipeline using Azure DevOps with this Demo App.
+Simple Node.js app deployed with Azure DevOps. Project name: uKo-Endava
 
-This is a Node and Express web application used to demonstrate CI/CD with Azure DevOps. You can clone this repo and use it within Azure DevOps to build, test, and release to an Azure App Service web app.
+- Pipeline with two stages - DEV -> PROD. 
 
-## Running and Testing Locally:
-
-You can use these commands to install, test, and run the app locally. (Not Required)
-
-### Install
+- Build Pipeline YML:
 
 ```
-npm install
+trigger:
+- master
+
+pool:
+  vmImage: 'Ubuntu-16.04'
+
+steps:
+- task: NodeTool@0
+  inputs:
+    versionSpec: '8.x'
+  displayName: 'Install Node.js'
+
+- script: |
+    npm install
+  displayName: 'npm install'
+
+- script: |
+    npm test
+  displayName: 'npm test'
+
+- task: ArchiveFiles@2
+  displayName: 'Archive files'
+  inputs:
+    rootFolderOrFile: '$(System.DefaultWorkingDirectory)'
+    includeRootFolder: false
+
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish artifacts: drop'
 ```
 
-### Test
+Made some modification in the code (text change) and modification in one of the tests (index_test.js) since is monitoring for the text on the Index page.
 
-```
-npm test
-```
+- Deployed on Azure App service on Linux with Staging slot (DEV).
 
-![alt text](https://user-images.githubusercontent.com/5126491/51065379-c1743280-15c1-11e9-80fd-6a3d7ab4ac1b.jpg "Unit Test")
+- Manual test created in the DevOps portal for testing the access to the web page - https://ukoendava.azurewebsites.net.
 
-Navigate to the `/test` folder to review the unit tests for this project. These tests will run as part of your Azure DevOps Build pipeline. See `azure-pipelines.yml` in this repo.
+- Monitoring (Alert rule) implemented in the Azure portal monitoring for HTTP 5xx and 403 requests.
 
-### Start
+- App service URL:
 
-```
-npm start
-```
+DEV slot: https://ukoendava-dev.azurewebsites.net
+PROD: https://ukoendava.azurewebsites.net/
 
-## Deploy the App Service Infrastructure:
+Credentials for the Azure portal and Azure DevOps portal will be send in the email.
 
-Click the button below to deploy an Azure Web App for Linux. This will create a new app service plan and web app with a dev deployment slot. You can then create build and release pipelines at dev.azure.com to continuously deploy the node application in this repo to the dev deployment slot.
-
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmikepfeiffer%2Fnode-express-azure%2Fmaster%2Fazuredeploy.json" target="_blank">
-    <img src="http://azuredeploy.net/deploybutton.png"/>
-</a>
-
-## Deploy the App Continuously with Azure DevOps:
-Follow my step-by-step guide: [Build Your First CI/CD Pipeline using Azure DevOps](https://mikepfeiffer.io/azure-devops-pipeline.html)
-
-This walkthrough contains all the steps you should follow to fork this repo and build your own automated build and release pipeline.
-
-## App Info
-
-### Author
-
-Mike Pfeiffer
-[@mike_pfeiffer](https://twitter.com/mike_pfeiffer)
-
-### Version
-
-1.0.0
-
-### License
-
-This project is licensed under the Apache License 2.0
