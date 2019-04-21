@@ -6,7 +6,7 @@ Simple Node.js app deployed with Azure DevOps.
 
 - Pipeline with two stages - DEV -> PROD. PROD is with implemented Pre-deployment approval.
 
-- Build Pipeline YML:
+- azure-pipelines.yml:
 
 ```
 trigger:
