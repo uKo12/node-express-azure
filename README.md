@@ -37,7 +37,7 @@ steps:
   displayName: 'Publish artifacts: drop'
 ```
 
-Made some modification in the code (text change) and modification in one of the tests (index_test.js) since is monitoring for the text on the Index page.
+- Made some modification in the code (text change) and modification in one of the tests (index_test.js) since is monitoring for the text on the Index page.
 
 - Deployed on Azure App service on Linux with Staging slot (DEV).
 
@@ -50,5 +50,5 @@ Made some modification in the code (text change) and modification in one of the 
 DEV slot: https://ukoendava-dev.azurewebsites.net
 PROD: https://ukoendava.azurewebsites.net/
 
-Credentials for the Azure portal and Azure DevOps portal will be send in the email.
+- Credentials for the Azure portal and Azure DevOps portal will be send in the email.
 
