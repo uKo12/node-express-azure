@@ -47,8 +47,8 @@ steps:
 
 - App service URL:
 
-DEV slot: https://ukoendava-dev.azurewebsites.net
-PROD: https://ukoendava.azurewebsites.net/
+  - DEV slot: https://ukoendava-dev.azurewebsites.net
+  - PROD: https://ukoendava.azurewebsites.net/
 
 - Credentials for the Azure portal and Azure DevOps portal will be send in the email.
 
