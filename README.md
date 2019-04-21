@@ -1,8 +1,10 @@
-# Sample Node app for Endava Azure DevOps Challenge
+# Sample Node.js app for Endava Azure DevOps Challenge
 
-Simple Node.js app deployed with Azure DevOps. Project name: uKo-Endava
+Simple Node.js app deployed with Azure DevOps. 
 
-- Pipeline with two stages - DEV -> PROD. 
+- Project name: uKo-Endava
+
+- Pipeline with two stages - DEV -> PROD. PROD is with implemented Pre-deployment approval.
 
 - Build Pipeline YML:
 
